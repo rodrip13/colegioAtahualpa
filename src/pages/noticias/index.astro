@@ -1,0 +1,97 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import { getCollection } from "astro:content";
+
+const noticias = await getCollection("noticias");
+const sortedNews = noticias.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<BaseLayout title="Noticias" description="Noticias del Colegio Atahualpa - Mantente informado sobre nuestras actividades">
+  <Header />
+
+  <main>
+    <!-- Hero Banner -->
+    <section class="relative h-[300px] md:h-[400px]">
+      <img 
+        src="https://colegioatahualpa.edu.uy/wp-content/uploads/2025/10/260880-P4WQ3T-13-01-1024x452.jpg"
+        alt="Noticias"
+        class="w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-gradient-to-r from-primary/80 to-primary/40 flex items-center">
+        <div class="container-custom">
+          <h1 class="text-4xl md:text-5xl font-bold text-white">Noticias</h1>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lista de Noticias -->
+    <section class="section-padding">
+      <div class="container-custom">
+        <div class="text-center mb-12">
+          <h2 class="section-title">Descubrí Qué Están Haciendo</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {sortedNews.map((noticia) => (
+            <article class="card card-hover group">
+              {noticia.data.heroImage && (
+                <div class="relative h-64 overflow-hidden">
+                  <img 
+                    src={noticia.data.heroImage}
+                    alt={noticia.data.title}
+                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  {noticia.data.category && (
+                    <span class="absolute top-4 left-4 px-3 py-1 bg-secondary text-white text-sm font-semibold rounded-full">
+                      {noticia.data.category}
+                    </span>
+                  )}
+                </div>
+              )}
+              <div class="p-6">
+                <time class="text-sm text-text-light mb-2 block">
+                  {noticia.data.pubDate.toLocaleDateString('es-UY', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                  })}
+                </time>
+                <h3 class="text-xl font-bold text-primary mb-3 group-hover:text-secondary transition-colors">
+                  <a href={`/noticias/${noticia.slug}`}>
+                    {noticia.data.title}
+                  </a>
+                </h3>
+                <p class="text-text-light mb-4 line-clamp-3">
+                  {noticia.data.description}
+                </p>
+                <a 
+                  href={`/noticias/${noticia.slug}`}
+                  class="inline-flex items-center text-primary font-semibold hover:text-secondary transition-colors"
+                >
+                  Leer más
+                  <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>

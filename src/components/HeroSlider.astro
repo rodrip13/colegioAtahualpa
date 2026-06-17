@@ -1,0 +1,99 @@
+---
+const slides = [
+  {
+    image: "https://colegioatahualpa.edu.uy/wp-content/uploads/2025/10/IMAGEN-CON-TEXTO-V2-scaled.jpg",
+    alt: "Colegio Atahualpa"
+  },
+  {
+    image: "https://colegioatahualpa.edu.uy/wp-content/uploads/2025/10/IMAGEN-CON-TEXTO-colegio-v2-scaled.jpg",
+    alt: "Nuestra Institución"
+  },
+  {
+    image: "https://colegioatahualpa.edu.uy/wp-content/uploads/2025/10/Inscipciones-02-1024x452.jpg",
+    alt: "Inscripciones Abiertas"
+  }
+];
+---
+
+<section class="relative h-[500px] md:h-[600px] overflow-hidden">
+  <!-- Slides -->
+  <div id="hero-slider" class="relative h-full">
+    {slides.map((slide, index) => (
+      <div 
+        class:list={["absolute inset-0 transition-opacity duration-1000", { "opacity-100": index === 0, "opacity-0": index !== 0 }]}
+        data-slide={index}
+      >
+        <img 
+          src={slide.image}
+          alt={slide.alt}
+          class="w-full h-full object-cover"
+          loading={index === 0 ? "eager" : "lazy"}
+        />
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-r from-black/60 to-black/30"></div>
+      </div>
+    ))}
+  </div>
+
+  <!-- Navigation Arrows -->
+  <button id="prev-slide" class="absolute left-4 top-1/2 -translate-y-1/2 z-10 p-3 bg-white/20 hover:bg-white/40 backdrop-blur-sm rounded-full transition-colors">
+    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+    </svg>
+  </button>
+  <button id="next-slide" class="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-3 bg-white/20 hover:bg-white/40 backdrop-blur-sm rounded-full transition-colors">
+    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+    </svg>
+  </button>
+
+  <!-- Dots -->
+  <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex space-x-3 z-10">
+    {slides.map((_, index) => (
+      <button 
+        class:list={["w-3 h-3 rounded-full transition-all", { "bg-white w-8": index === 0, "bg-white/50": index !== 0 }]}
+        data-dot={index}
+      />
+    ))}
+  </div>
+</section>
+
+<script>
+  const slides = document.querySelectorAll('[data-slide]');
+  const dots = document.querySelectorAll('[data-dot]');
+  const prevBtn = document.getElementById('prev-slide');
+  const nextBtn = document.getElementById('next-slide');
+  let currentSlide = 0;
+  const totalSlides = slides.length;
+
+  function goToSlide(index: number) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('opacity-100', i === index);
+      slide.classList.toggle('opacity-0', i !== index);
+    });
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('bg-white', i === index);
+      dot.classList.toggle('w-8', i === index);
+      dot.classList.toggle('bg-white/50', i !== index);
+      dot.classList.toggle('w-3', i !== index);
+    });
+    currentSlide = index;
+  }
+
+  prevBtn?.addEventListener('click', () => {
+    goToSlide((currentSlide - 1 + totalSlides) % totalSlides);
+  });
+
+  nextBtn?.addEventListener('click', () => {
+    goToSlide((currentSlide + 1) % totalSlides);
+  });
+
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => goToSlide(index));
+  });
+
+  // Auto-advance
+  setInterval(() => {
+    goToSlide((currentSlide + 1) % totalSlides);
+  }, 5000);
+</script>

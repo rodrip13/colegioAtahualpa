@@ -1,0 +1,180 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const galleryImages = [
+  "https://colegioatahualpa.edu.uy/wp-content/uploads/2025/10/260880-P4WQ3T-13-01-1024x869.png",
+  "https://colegioatahualpa.edu.uy/wp-content/uploads/2026/05/Escuela-02-1024x876.jpg",
+  "https://colegioatahualpa.edu.uy/wp-content/uploads/2025/10/260880-P4WQ3T-13-03-1024x869.png",
+  "https://colegioatahualpa.edu.uy/wp-content/uploads/2025/10/260880-P4WQ3T-13-04-1024x876.png",
+  "https://colegioatahualpa.edu.uy/wp-content/uploads/2025/10/260880-P4WQ3T-13-05-1024x869.png",
+  "https://colegioatahualpa.edu.uy/wp-content/uploads/2025/10/260880-P4WQ3T-13-07-1024x869.png",
+  "https://colegioatahualpa.edu.uy/wp-content/uploads/2025/10/45678-10-1-1024x876.png",
+  "https://colegioatahualpa.edu.uy/wp-content/uploads/2026/05/Escuela-01-1024x876.jpg",
+];
+---
+
+<BaseLayout title="Primaria" description="Primaria del Colegio Atahualpa - Educación de calidad de 1° a 6° año">
+  <Header />
+
+  <main>
+    <!-- Hero Banner -->
+    <section class="relative h-[300px] md:h-[400px]">
+      <img 
+        src="https://colegioatahualpa.edu.uy/wp-content/uploads/2025/10/260880-P4WQ3T-13-01-1024x452.jpg"
+        alt="Primaria"
+        class="w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-gradient-to-r from-primary/80 to-primary/40 flex items-center">
+        <div class="container-custom">
+          <h1 class="text-4xl md:text-5xl font-bold text-white">Primaria</h1>
+        </div>
+      </div>
+    </section>
+
+    <!-- Descripción Principal -->
+    <section class="section-padding">
+      <div class="container-custom">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="section-title">Sector Primaria</h2>
+            <p class="text-lg text-text-light mb-6">
+              Brindamos todas las oportunidades para que nuestros alumnos y alumnas desarrollen sus vínculos, su potencial social y de aprendizaje, sus emociones y su creatividad. Estimulamos la iniciativa y la curiosidad.
+            </p>
+            <div class="space-y-4">
+              <div class="flex items-start space-x-3">
+                <svg class="w-6 h-6 text-secondary flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <p class="text-text-light"><strong>De 1° a 6° año</strong></p>
+              </div>
+              <div class="flex items-start space-x-3">
+                <svg class="w-6 h-6 text-secondary flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <p class="text-text-light"><strong>Horario:</strong> 8:30 a 12:30 (parte curricular) + talleres (13:15 a 16:40)</p>
+              </div>
+            </div>
+          </div>
+          <div class="relative">
+            <img 
+              src="https://colegioatahualpa.edu.uy/wp-content/uploads/2025/10/imgi_20_DSC_0300-2048x1754-1-1024x877.jpg"
+              alt="Sector Primaria"
+              class="rounded-lg shadow-xl"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Nuestras Tardes -->
+    <section class="section-padding bg-surface">
+      <div class="container-custom">
+        <div class="text-center mb-12">
+          <h2 class="section-title">Nuestras Tardes</h2>
+          <p class="section-subtitle mx-auto">
+            En el horario vespertino desarrollamos la propuesta de talleres y Educación Física.
+          </p>
+          <p class="text-lg text-text-light max-w-3xl mx-auto mt-4">
+            Teniendo como punto de partida la expresión "aprender haciendo" definimos nuestra orientación y finalidad, con el profundo convencimiento de que el <em>"hombre en su hacer se hace"</em>.
+          </p>
+        </div>
+
+        <!-- Galería -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {galleryImages.map((image, index) => (
+            <div class="relative h-48 overflow-hidden rounded-lg hover:opacity-90 transition-opacity cursor-pointer">
+              <img 
+                src={image}
+                alt={`Actividad ${index + 1}`}
+                class="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Actividades Extras -->
+    <section class="section-padding">
+      <div class="container-custom">
+        <h2 class="section-title text-center mb-12">Actividades Extras</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Campamentos -->
+          <div class="card p-6">
+            <div class="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-primary mb-3">Campamentos</h3>
+            <p class="text-text-light">
+              Oportunidad de convivencia entre niños y docentes que enriquecen a todos. La vivencia de campamento fomenta la seguridad y confianza en sí mismos. Ayuda a la socialización y favorece la creatividad.
+            </p>
+          </div>
+
+          <!-- Escuelas Deportivas -->
+          <div class="card p-6">
+            <div class="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-primary mb-3">Escuelas Deportivas</h3>
+            <p class="text-text-light">
+              Se realiza luego de la jornada escolar (de 17 a 18hs). Se puede optar entre fútbol o handball, ambos en forma mixta. Está incluída en la cuota.
+            </p>
+          </div>
+
+          <!-- Departamento Psicológico -->
+          <div class="card p-6">
+            <div class="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-primary mb-3">Departamento Psicológico</h3>
+            <p class="text-text-light">
+              Con el objetivo de acompañar en forma individual y grupal a los alumnos en sus aprendizajes y la evolución de cada etapa.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lista de Materiales -->
+    <section class="py-16 bg-surface">
+      <div class="container-custom text-center">
+        <h2 class="section-title">Lista de Materiales 2026</h2>
+        <a href="https://colegioatahualpa.edu.uy/wp-content/uploads/2025/12/Materiales-Primaria-2026.pdf" target="_blank" class="inline-block">
+          <img 
+            src="https://colegioatahualpa.edu.uy/wp-content/uploads/2025/10/Materiales-Primaria-08-1024x267.png"
+            alt="Lista de Materiales Primaria 2026"
+            class="max-w-xl mx-auto hover:opacity-80 transition-opacity"
+            loading="lazy"
+          />
+        </a>
+        <p class="text-sm text-text-light mt-4">Click en la imagen para descargar el PDF</p>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 bg-secondary">
+      <div class="container-custom text-center">
+        <h2 class="text-3xl font-bold text-white mb-4">¿Querés que tu hijo sea parte de nuestro colegio?</h2>
+        <p class="text-lg text-white/90 mb-8 max-w-2xl mx-auto">
+          Contactanos y te contaremos todo sobre nuestra propuesta educativa.
+        </p>
+        <a href="/contacto" class="inline-flex items-center px-8 py-4 bg-white text-secondary font-bold rounded-lg hover:bg-gray-100 transition-colors">
+          Contáctanos
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

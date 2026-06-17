@@ -1,0 +1,147 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<BaseLayout title="Institucional" description="Historia y cometido del Colegio Atahualpa - Más de 20 años de educación de calidad">
+  <Header />
+
+  <main>
+    <!-- Hero Banner -->
+    <section class="relative h-[300px] md:h-[400px]">
+      <img 
+        src="https://colegioatahualpa.edu.uy/wp-content/uploads/2025/10/260880-P4WQ3T-13-01-1024x452.jpg"
+        alt="Institucional"
+        class="w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-gradient-to-r from-primary/80 to-primary/40 flex items-center">
+        <div class="container-custom">
+          <h1 class="text-4xl md:text-5xl font-bold text-white">Institucional</h1>
+        </div>
+      </div>
+    </section>
+
+    <!-- Historia -->
+    <section class="section-padding">
+      <div class="container-custom">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-3xl md:text-4xl font-bold text-primary text-center mb-8">
+            OBREROS Y ARQUITECTOS DE UN DESTINO
+          </h2>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+            <div>
+              <h3 class="text-2xl font-bold text-primary mb-6">Un Poco de Historia</h3>
+              <div class="prose prose-lg text-text-light space-y-4">
+                <p>
+                  Mirando hacia atrás creemos que para este grupo cooperativo la frase que titula este espacio es el fiel reflejo de nuestros inicios.
+                </p>
+                <p>
+                  En el año 2002 fuimos conscientes de que el proyecto educativo donde nos desempeñábamos se agotaba y no habría un 2003 desde lo laboral.
+                </p>
+                <p>
+                  Es así que surge la iniciativa de generar un proyecto educativo propio orientado hacia la excelencia académica y la transmisión de valores innegociables a nivel social.
+                </p>
+                <p>
+                  Es así que un 22 de agosto de 2002 nos agrupamos en torno a un sistema cooperativo, donde la ayuda mutua, equidad y solidaridad serían los valores que nos definirían.
+                </p>
+                <p>
+                  Comprendimos que cada uno era la pieza fundamental de un puzle que sólo podría armarse aportando las competencias propias, no todos deberíamos brillar en todo, alcanzaba con poner al servicio de la comunidad aquello en lo que nos desempeñábamos mejor. Fue así que llegamos a nuestro local insignia, la quinta de Carmelo 1415. Allí comenzó un proceso de recuperación patrimonial para la zona y la base física de nuestro proyecto. Fueron muchas horas de asambleas, trabajo cooperativo y lucha por ese ideal común.
+                </p>
+                <p>
+                  En marzo de 2003 abríamos las puertas de "nuestro proyecto". Era la forma de retribuir la confianza depositada en nosotros por aquellas familias que creyeron desde un principio y, a su vez, de demostrarnos que sí se podía.
+                </p>
+                <p class="text-primary font-semibold italic">
+                  Hoy, luego de veintiún años de aquel 22 de agosto de 2002 podemos asegurar que la frase con la cual celebramos nuestro décimo aniversario continúa más vigente que nunca: "en tiempos de incertidumbre soñamos que era posible".
+                </p>
+              </div>
+            </div>
+
+            <div class="relative">
+              <img 
+                src="https://colegioatahualpa.edu.uy/wp-content/uploads/2025/10/imgi_9_WhatsApp-Image-2023-10-13-at-14.02.59-768x1024.jpg"
+                alt="Fundadores del Colegio Atahualpa"
+                class="rounded-lg shadow-xl"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cometido -->
+    <section class="section-padding bg-surface">
+      <div class="container-custom">
+        <div class="max-w-4xl mx-auto">
+          <div class="text-center mb-12">
+            <h3 class="text-5xl font-bold text-primary mb-4">NUESTRO</h3>
+            <h2 class="text-4xl font-bold text-secondary">Cometido</h2>
+          </div>
+
+          <div class="prose prose-lg text-text-light space-y-4">
+            <p>
+              Orientados hacia una educación innovadora que se basa en el hacer y se centra en el alumno como protagonista de su aprendizaje. Nuestros alumnos toman decisiones, planifican, elaboran sus estrategias, reflexionan, investigan y aprenden también de sus errores, guiados siempre por sus docentes. Disfrutan del aprendizaje, ya que lo que aprenden les es útil y aplicable.
+            </p>
+            <p>
+              A través del trabajo colaborativo, aprenden de otros y con otros.
+            </p>
+            <p>
+              Mediante diferentes metodologías fomentamos la autoestima y la superación personal a través de la autoevaluación y la corrección de las actividades de aula con juicios constructivos.
+            </p>
+            <p>
+              Todo eso se hace posible trabajando en un clima familiar, solidaria y de respeto mutuo.
+            </p>
+            <p>
+              Consideramos al alumno como un ser valioso, único y especial. Propiciamos una enseñanza humanista, personalizada y organizada en grupos reducidos para maximizar la atención de cada alumno en particular, respetando su individualidad, su estilo y ritmo de aprendizaje.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Valores -->
+    <section class="section-padding">
+      <div class="container-custom">
+        <div class="text-center mb-12">
+          <h2 class="section-title">Nuestros Valores</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          <div class="text-center">
+            <div class="w-20 h-20 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-10 h-10 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-primary mb-2">Ayuda Mutua</h3>
+            <p class="text-text-light">Trabajamos juntos para lograr objetivos comunes</p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-20 h-20 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-10 h-10 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-primary mb-2">Equidad</h3>
+            <p class="text-text-light">Tratamiento justo e igualitario para todos</p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-20 h-20 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-10 h-10 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-primary mb-2">Solidaridad</h3>
+            <p class="text-text-light">Apoyo mutuo en la comunidad educativa</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

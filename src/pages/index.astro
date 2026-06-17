@@ -1,12 +1,229 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import HolaMundoCruel from '../components/HolaMundoCruel.astro';
-import Layout from '../layouts/Layout.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import HeroSlider from "../components/HeroSlider.astro";
+import LevelCard from "../components/LevelCard.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const levels = [
+  {
+    title: "Inicial",
+    description: "Apostando a un ambiente de confianza y seguridad, se promueve el desarrollo de las potencialidades de cada alumno; respetando los tiempos personales e intereses.",
+    image: "https://colegioatahualpa.edu.uy/wp-content/uploads/2025/10/0124-02-1536x1077-1.jpg",
+    href: "/inicial"
+  },
+  {
+    title: "Primaria",
+    description: "Brindamos todas las oportunidades para que nuestros alumnos y alumnas desarrollen sus vínculos, su potencial social y de aprendizaje, sus emociones y su creatividad.",
+    image: "https://colegioatahualpa.edu.uy/wp-content/uploads/2025/10/0124-03-1536x1077-1.jpg",
+    href: "/primaria"
+  },
+  {
+    title: "Secundaria",
+    description: "Más allá del escenario, lo importante es la trama de vivencias que nos permiten recrearnos y crecer con nuestros alumnos y nuestros compañeros cada día.",
+    image: "https://colegioatahualpa.edu.uy/wp-content/uploads/2025/10/0124-01-1536x1077-1.jpg",
+    href: "/secundaria"
+  }
+];
+
+const news = [
+  {
+    title: "Visita a Granja Doña Palmira",
+    date: "Nov 28, 2025",
+    excerpt: "Los alumnos de Inicial del Colegio, realizaron una hermosa visita a la Granja Doña Palmira...",
+    image: "https://colegioatahualpa.edu.uy/wp-content/uploads/2025/11/IMG_8171-768x1024.jpg",
+    href: "/noticias/visita-a-granja-dona-palmira"
+  },
+  {
+    title: "Visita a la Granja San Gerardo",
+    date: "Nov 24, 2025",
+    excerpt: "Alumnos de Segundo y Tercero del Colegio Atahualpa Visitan la Granja San Gerardo...",
+    image: "https://colegioatahualpa.edu.uy/wp-content/uploads/2025/10/WhatsApp-Image-2024-11-07-at-3.25.13-PM-1024x768-1.jpeg",
+    href: "/noticias/visita-a-la-granja-san-gerardo"
+  },
+  {
+    title: "Celebración del Natalicio de Artigas",
+    date: "Nov 18, 2025",
+    excerpt: "Celebración del Natalicio de José Gervasio Artigas en el Colegio y Liceo Atahualpa...",
+    image: "https://colegioatahualpa.edu.uy/wp-content/uploads/2025/10/WhatsApp-Image-2025-06-25-at-4.27.42-PM-576x1024-2.jpeg",
+    href: "/noticias/celebracion-del-natalicio"
+  },
+  {
+    title: "Visita al Ecocentro Prado",
+    date: "Nov 14, 2025",
+    excerpt: "Visitamos el Ecocentro Prado con Tercer Año de Primaria...",
+    image: "https://colegioatahualpa.edu.uy/wp-content/uploads/2025/11/0da6a058-f120-42b4-abbe-e7f55a4e1179-1024x768.jpg",
+    href: "/noticias/visita-al-ecocentro-prado"
+  }
+];
 ---
 
-<Layout>
-	<HolaMundoCruel />
-</Layout>
+<BaseLayout title="Inicio">
+  <Header />
+  
+  <main>
+    <!-- Hero Section -->
+    <HeroSlider />
+
+    <!-- Niveles Educativos -->
+    <section class="section-padding bg-surface">
+      <div class="container-custom">
+        <div class="text-center mb-12">
+          <h2 class="section-title">Nuestros Niveles</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {levels.map((level) => (
+            <LevelCard {...level} />
+          ))}
+        </div>
+        <div class="text-center mt-12">
+          <a href="/contacto" class="btn-secondary">
+            Contáctanos
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sobre Nosotros -->
+    <section class="section-padding">
+      <div class="container-custom">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="section-title">Más de 20 años acompañando el crecimiento de sus hijos</h2>
+            <p class="text-lg text-text-light mb-6">
+              Mirando hacia atrás creemos que para este grupo cooperativo la frase que titula este espacio es el fiel reflejo de nuestros inicios.
+            </p>
+            <p class="text-text-light mb-6">
+              Es así que un 22 de agosto de 2002 nos agrupamos en torno a un sistema cooperativo, donde la ayuda mutua, equidad y solidaridad serían los valores que nos definirían. Comprendimos que cada uno era la pieza fundamental de un puzzle que sólo podría armarse aportando las competencias propias...
+            </p>
+            <a href="/institucional" class="btn-outline">
+              Descubre más
+            </a>
+          </div>
+          <div class="relative">
+            <img 
+              src="https://colegioatahualpa.edu.uy/wp-content/uploads/2025/10/imgi_7_IMG_5434-2.jpg"
+              alt="Sobre Nosotros"
+              class="rounded-lg shadow-xl"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Instalaciones -->
+    <section class="section-padding bg-primary text-white">
+      <div class="container-custom">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">Instalaciones</h2>
+          <p class="text-lg text-gray-300 max-w-2xl mx-auto">
+            Contamos con modernas instalaciones diseñadas para el aprendizaje y desarrollo integral de nuestros alumnos
+          </p>
+          <a href="/instalaciones" class="inline-flex items-center mt-6 px-6 py-3 bg-secondary text-white font-semibold rounded-lg hover:opacity-90 transition-opacity">
+            Ver instalaciones
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Noticias -->
+    <section class="section-padding bg-surface">
+      <div class="container-custom">
+        <div class="text-center mb-12">
+          <h2 class="section-title">Últimas Noticias</h2>
+          <p class="section-subtitle mx-auto">Descubrí qué están haciendo nuestros alumnos</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {news.map((item) => (
+            <a href={item.href} class="card card-hover group">
+              <div class="relative h-48 overflow-hidden">
+                <img 
+                  src={item.image}
+                  alt={item.title}
+                  class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  loading="lazy"
+                />
+              </div>
+              <div class="p-4">
+                <p class="text-sm text-text-light mb-2">{item.date}</p>
+                <h3 class="font-semibold text-primary group-hover:text-secondary transition-colors">
+                  {item.title}
+                </h3>
+              </div>
+            </a>
+          ))}
+        </div>
+        <div class="text-center mt-12">
+          <a href="/noticias" class="btn-outline">
+            Ver todas las noticias
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Info Cards -->
+    <section class="py-12 bg-white">
+      <div class="container-custom">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- WhatsApp -->
+          <div class="flex items-center space-x-4 p-6 bg-surface rounded-lg">
+            <img 
+              src="https://colegioatahualpa.edu.uy/wp-content/uploads/2025/10/88888-Recuperado-01-1-751x1024.png"
+              alt="WhatsApp"
+              class="w-16 h-20 object-contain"
+            />
+            <div>
+              <h3 class="font-semibold text-primary">WhatsApp</h3>
+              <p class="text-sm text-text-light">Contáctanos directo</p>
+            </div>
+          </div>
+
+          <!-- Menú -->
+          <div class="flex items-center space-x-4 p-6 bg-surface rounded-lg">
+            <img 
+              src="https://colegioatahualpa.edu.uy/wp-content/uploads/2025/10/88888-Recuperado-04-1-751x1024.png"
+              alt="Menú"
+              class="w-16 h-20 object-contain"
+            />
+            <div>
+              <h3 class="font-semibold text-primary">Menú</h3>
+              <p class="text-sm text-text-light">Ver el menú escolar</p>
+            </div>
+          </div>
+
+          <!-- Transporte -->
+          <div class="flex items-center space-x-4 p-6 bg-surface rounded-lg">
+            <img 
+              src="https://colegioatahualpa.edu.uy/wp-content/uploads/2025/10/88888-Recuperado-02-1-751x1024.png"
+              alt="Transporte"
+              class="w-16 h-20 object-contain"
+            />
+            <div>
+              <h3 class="font-semibold text-primary">Transporte</h3>
+              <p class="text-sm text-text-light">Servicio de transporte</p>
+            </div>
+          </div>
+
+          <!-- Contacto -->
+          <div class="flex items-center space-x-4 p-6 bg-surface rounded-lg">
+            <img 
+              src="https://colegioatahualpa.edu.uy/wp-content/uploads/2025/10/88888-Recuperado-03-1-751x1024.png"
+              alt="Contacto"
+              class="w-16 h-20 object-contain"
+            />
+            <div>
+              <h3 class="font-semibold text-primary">Contacto</h3>
+              <p class="text-sm text-text-light">Escríbenos</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>
