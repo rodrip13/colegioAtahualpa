@@ -1,0 +1,143 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const galleryImages = [
+  "https://colegioatahualpa.edu.uy/wp-content/uploads/2025/10/260880-P4WQ3T-13-01-1024x869.png",
+  "https://colegioatahualpa.edu.uy/wp-content/uploads/2026/05/Escuela-04-1024x876.jpg",
+  "https://colegioatahualpa.edu.uy/wp-content/uploads/2025/10/260880-P4WQ3T-13-03-1024x869.png",
+  "https://colegioatahualpa.edu.uy/wp-content/uploads/2025/10/260880-P4WQ3T-13-04-1024x876.png",
+  "https://colegioatahualpa.edu.uy/wp-content/uploads/2026/05/Escuela-03-1024x876.jpg",
+  "https://colegioatahualpa.edu.uy/wp-content/uploads/2025/10/260880-P4WQ3T-13-07-1024x869.png",
+  "https://colegioatahualpa.edu.uy/wp-content/uploads/2025/10/260880-P4WQ3T-13-05-1024x869.png",
+  "https://colegioatahualpa.edu.uy/wp-content/uploads/2026/05/Escuela-05-1024x876.jpg",
+];
+---
+
+<BaseLayout title="Nivel Inicial" description="Nivel Inicial del Colegio Atahualpa - Educación de calidad desde los 2 años">
+  <Header />
+
+  <main>
+    <!-- Hero Banner -->
+    <section class="relative h-[300px] md:h-[400px]">
+      <img 
+        src="https://colegioatahualpa.edu.uy/wp-content/uploads/2025/10/260880-P4WQ3T-13-01-1024x452.jpg"
+        alt="Nivel Inicial"
+        class="w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-gradient-to-r from-primary/80 to-primary/40 flex items-center">
+        <div class="container-custom">
+          <h1 class="text-4xl md:text-5xl font-bold text-white">Nivel Inicial</h1>
+        </div>
+      </div>
+    </section>
+
+    <!-- Descripción Principal -->
+    <section class="section-padding">
+      <div class="container-custom">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="section-title">Sector Inicial</h2>
+            <p class="text-lg text-text-light mb-6">
+              Apostando a un ambiente de confianza y seguridad, se promueve el desarrollo de las potencialidades de cada alumno; respetando los tiempos personales e intereses.
+            </p>
+            <p class="text-text-light mb-4">
+              A partir de los 2 años, con las opciones de:
+            </p>
+            <ul class="list-disc list-inside text-text-light space-y-2 mb-6">
+              <li><strong>Doble horario:</strong> de 8:30 a 16:40 (parte curricular en la mañana y talleres en la tarde)</li>
+              <li><strong>Medio horario:</strong> (solo en Nivel Inicial) de 8:30 a 12:30</li>
+            </ul>
+          </div>
+          <div class="relative">
+            <img 
+              src="https://colegioatahualpa.edu.uy/wp-content/uploads/2025/10/260880-P4WQ3T-13-02-1024x452.jpg"
+              alt="Sector Inicial"
+              class="rounded-lg shadow-xl"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Nuestras Tardes -->
+    <section class="section-padding bg-surface">
+      <div class="container-custom">
+        <div class="text-center mb-12">
+          <h2 class="section-title">Nuestras Tardes</h2>
+          <p class="section-subtitle mx-auto">
+            En el horario vespertino desarrollamos la propuesta de talleres y Educación Física.
+          </p>
+          <p class="text-lg text-text-light max-w-3xl mx-auto mt-4">
+            Teniendo como punto de partida la expresión "aprender haciendo" definimos nuestra orientación y finalidad, con el profundo convencimiento de que el <em>"hombre en su hacer se hace"</em>.
+          </p>
+        </div>
+
+        <!-- Galería -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {galleryImages.map((image, index) => (
+            <div class="relative h-48 overflow-hidden rounded-lg hover:opacity-90 transition-opacity cursor-pointer">
+              <img 
+                src={image}
+                alt={`Actividad ${index + 1}`}
+                class="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Actividades Extras -->
+    <section class="section-padding">
+      <div class="container-custom">
+        <div class="max-w-3xl mx-auto">
+          <h2 class="section-title text-center">Actividades Extras</h2>
+          <p class="text-lg text-text-light text-center mb-8">
+            Oportunidad de convivencia entre niños y docentes que enriquecen a todos. La vivencia de campamento fomenta la seguridad y confianza en sí mismos. Ayuda a la socialización y favorece la creatividad. Se realiza a partir de los tres años.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Departamento Psicológico -->
+    <section class="section-padding bg-surface">
+      <div class="container-custom">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="order-2 lg:order-1">
+            <img 
+              src="https://colegioatahualpa.edu.uy/wp-content/uploads/2025/10/imgi_3_IMG_3846-e1697935963818-1024x762.jpg"
+              alt="Departamento Psicológico"
+              class="rounded-lg shadow-xl"
+              loading="lazy"
+            />
+          </div>
+          <div class="order-1 lg:order-2">
+            <h2 class="section-title">Departamento Psicológico</h2>
+            <p class="text-lg text-text-light">
+              Con el objetivo de acompañar en forma individual y grupal a los alumnos en sus aprendizajes y la evolución de cada etapa.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 bg-secondary">
+      <div class="container-custom text-center">
+        <h2 class="text-3xl font-bold text-white mb-4">¿Querés saber más sobre nuestro Nivel Inicial?</h2>
+        <p class="text-lg text-white/90 mb-8 max-w-2xl mx-auto">
+          Contactanos y te contaremos todo sobre nuestra propuesta educativa para los más pequeños.
+        </p>
+        <a href="/contacto" class="inline-flex items-center px-8 py-4 bg-white text-secondary font-bold rounded-lg hover:bg-gray-100 transition-colors">
+          Contáctanos
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

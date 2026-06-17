@@ -1,0 +1,163 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const galleryImages = [
+  "https://colegioatahualpa.edu.uy/wp-content/uploads/2026/05/Escuela-06-1024x876.jpg",
+  "https://colegioatahualpa.edu.uy/wp-content/uploads/2026/05/Escuela-07-1024x876.jpg",
+  "https://colegioatahualpa.edu.uy/wp-content/uploads/2026/05/Escuela-09-1024x876.jpg",
+  "https://colegioatahualpa.edu.uy/wp-content/uploads/2026/05/Escuela-08-1024x876.jpg",
+  "https://colegioatahualpa.edu.uy/wp-content/uploads/2026/05/Escuela-10-1024x876.jpg",
+  "https://colegioatahualpa.edu.uy/wp-content/uploads/2025/10/260880-P4WQ3T-13-Recuperado-04-1024x876.png",
+];
+---
+
+<BaseLayout title="Secundaria" description="Secundaria y Bachillerato del Colegio Atahualpa - Educación de calidad">
+  <Header />
+
+  <main>
+    <!-- Hero Banner -->
+    <section class="relative h-[300px] md:h-[400px]">
+      <img 
+        src="https://colegioatahualpa.edu.uy/wp-content/uploads/2025/10/260880-P4WQ3T-13-01-1024x452.jpg"
+        alt="Secundaria"
+        class="w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-gradient-to-r from-primary/80 to-primary/40 flex items-center">
+        <div class="container-custom">
+          <h1 class="text-4xl md:text-5xl font-bold text-white">Secundaria</h1>
+        </div>
+      </div>
+    </section>
+
+    <!-- Historia del Sector -->
+    <section class="section-padding">
+      <div class="container-custom">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="section-title">Nuestra Historia</h2>
+            <p class="text-lg text-text-light mb-4">
+              Nuestra historia del sector secundaria, nos ha encontrado en diferentes edificios, y ello nos ha hecho reafirmar nuestra convicción de que más allá del escenario, lo importante es la trama de vivencias que nos permiten recrearnos y crecer con nuestros alumnos y nuestros compañeros cada día.
+            </p>
+            <p class="text-text-light mb-4">
+              Incorporamos el cambiante desarrollo tecnológico, proveedor de múltiples herramientas que no opacan ni sustituyen la magia de la interacción en el encuentro con el otro. Apostamos al diálogo fructífero y respetuoso, generando un espacio de escucha, abierto al cambio y la autocrítica.
+            </p>
+            <p class="text-text-light mb-4">
+              Nuestra entrevista inicial es personal y única, y el compartir nuestra historia, es el comienzo de una integración en ella, ya que los padres son figuras imprescindibles de nuestra comunidad educativa.
+            </p>
+            <p class="text-text-light mb-6">
+              Desde nuestra experiencia de veinte años, sostenemos que es posible estimular y desarrollar las fortalezas de cada estudiante. <em>En definitiva, todos pensamos que cada alumno es único, como tu hijo.</em>
+            </p>
+          </div>
+          <div class="relative">
+            <img 
+              src="https://colegioatahualpa.edu.uy/wp-content/uploads/2025/10/imgi_17_DSC_0285-1-1024x399.jpg"
+              alt="Secundaria"
+              class="rounded-lg shadow-xl mb-6"
+              loading="lazy"
+            />
+            <img 
+              src="https://colegioatahualpa.edu.uy/wp-content/uploads/2025/10/imgi_3_WhatsApp-Image-2023-10-13-at-14.03.00-qdy6x7s9rb31fvut9b5vlnqy33bxjnlmia7svgdo7i.jpg"
+              alt="Actividades Secundarias"
+              class="rounded-lg shadow-xl"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Talleres -->
+    <section class="section-padding bg-surface">
+      <div class="container-custom">
+        <div class="text-center mb-12">
+          <h2 class="section-title">Talleres</h2>
+          <p class="section-subtitle mx-auto">
+            Funcionan al finalizar la jornada curricular o Sábados
+          </p>
+        </div>
+
+        <!-- Galería -->
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          {galleryImages.map((image, index) => (
+            <div class="relative h-48 overflow-hidden rounded-lg hover:opacity-90 transition-opacity cursor-pointer">
+              <img 
+                src={image}
+                alt={`Taller ${index + 1}`}
+                class="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Departamento Psicológico y Psicopedagogía -->
+    <section class="section-padding">
+      <div class="container-custom">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <!-- Departamento Psicológico -->
+          <div>
+            <h2 class="section-title">Departamento Psicológico</h2>
+            <p class="text-lg text-text-light mb-4">
+              El acompañamiento, apoyo y sostén son los ejes principales que motivan nuestro rol y son desplegados en sintonía con la propuesta institucional. Los emergentes son contenidos desde una escucha atenta y sensible.
+            </p>
+            <p class="text-text-light mb-4">
+              La comprensión del adolescente es desde una mirada integral y situacional, extendiendo la misma a los diferentes actores involucrados en el proceso de aprendizaje. Consideramos que dicho proceso está atravesado por factores psicosociales y evolutivos que irrumpen la travesía académica, es por ello que acompañar y contener se hace fundamental.
+            </p>
+            <p class="text-text-light">
+              Este abordaje involucra la tríada alumno – familia – institución educativa. Trabajamos juntos en la construcción de un proyecto de vida donde la trayectoria educativa se desarrolle de forma consciente y comprometida, motivada por deseos propios para afrontar los desafios vinculares y sociales futuros.
+            </p>
+          </div>
+
+          <!-- Psicopedagogía -->
+          <div>
+            <h2 class="section-title">Psicopedagogía</h2>
+            <p class="text-lg text-text-light mb-4">
+              Desde la institución se reconoce la diversidad en el aprendizaje, abarcando las necesidades educativas de todos los alumnos. El rol del psicopedagogo institucional es brindar asesoramiento y orientación a los docentes, así como sugerirles diferentes herramientas o estrategias para el trabajo con el alumnado con necesidades educativas especiales.
+            </p>
+            <p class="text-text-light mb-4">
+              En este sentido, antes del ingreso de los alumnos de 7° se realiza una evaluación tipo screening con el objetivo de recabar información acerca de su rendimiento en lectura, escritura y cálculo mental, e identificar posibles indicadores de dificultades de aprendizaje para posteriormente, si se requiriera, sugerir a las familias evaluación más exhaustiva.
+            </p>
+            <p class="text-text-light">
+              Asimismo, el departamento de psicopedagogía trabaja en conjunto tanto con el cuerpo docente como con los técnicos externos que trabajan con el alumnado neurodivergente o con dificultades de aprendizaje de manera de ajustar adecuaciones curriculares pertinentes para cada alumno en particular.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lista de Materiales -->
+    <section class="py-16 bg-surface">
+      <div class="container-custom text-center">
+        <h2 class="section-title">Lista de Materiales 2026</h2>
+        <a href="https://colegioatahualpa.edu.uy/wp-content/uploads/2026/06/Materiales-Secundaria-y-Bachillerato-2026.pdf" target="_blank" class="inline-block">
+          <img 
+            src="https://colegioatahualpa.edu.uy/wp-content/uploads/2025/10/260880-P4WQ3T-13-Recuperado-08-1024x267.png"
+            alt="Lista de Materiales Secundaria 2026"
+            class="max-w-xl mx-auto hover:opacity-80 transition-opacity"
+            loading="lazy"
+          />
+        </a>
+        <p class="text-sm text-text-light mt-4">Click en la imagen para descargar el PDF</p>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 bg-secondary">
+      <div class="container-custom text-center">
+        <h2 class="text-3xl font-bold text-white mb-4">¿Querés que tu hijo sea parte de nuestro liceo?</h2>
+        <p class="text-lg text-white/90 mb-8 max-w-2xl mx-auto">
+          Contactanos y te contaremos todo sobre nuestra propuesta educativa para adolescentes.
+        </p>
+        <a href="/contacto" class="inline-flex items-center px-8 py-4 bg-white text-secondary font-bold rounded-lg hover:bg-gray-100 transition-colors">
+          Contáctanos
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>
